@@ -77,7 +77,7 @@
         weatherLabel.textColor=[UIColor whiteColor];
         weatherLabel.textAlignment=NSTextAlignmentCenter;
         weatherLabel.font=[UIFont systemFontOfSize:15];
-//        weatherLabel.text=@"雷阵雨转晴";
+        weatherLabel.text=@"雷阵雨转晴";
         
         UILabel *wenDuLabel=[[UILabel alloc]init];
         [self.contentView addSubview:wenDuLabel];
@@ -86,11 +86,11 @@
         wenDuLabel.textColor=[UIColor whiteColor];
         wenDuLabel.textAlignment=NSTextAlignmentCenter;
         wenDuLabel.font=[UIFont systemFontOfSize:60];
-//        wenDuLabel.text=@"27";
+        wenDuLabel.text=@"27";
         self.wenDuLabel=wenDuLabel;
         
         [self addWeatherLine];
-        
+        [self addInFoButton];
         
     }
     return self;
@@ -154,11 +154,8 @@
 }
 
 -(void)tiGanButtonClick:(UIButton *)button{
-    NSLog(@"tiGanButtonClick");
     [self addInFo:button];
-    
-    
-    
+     
 }
 -(void)ganMaoButtonClick:(UIButton *)button{
     [self addInFo:button];
@@ -186,7 +183,7 @@
     infoLabel.textAlignment=NSTextAlignmentLeft;
     infoLabel.font=[UIFont systemFontOfSize:14];
     if (self.modelInfoArray.count==0) {
-        self.temLabel.text=@"没网";
+        NSLog(@"没网");
         return;
     }
     
@@ -235,7 +232,7 @@
  }
 -(void)setModelInfoArray:(NSMutableArray *)modelInfoArray{
     _modelInfoArray=modelInfoArray;
-    [self addInFoButton];
+    [self addInFo:self.tiGanButton];
 }
 
 
